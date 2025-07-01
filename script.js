@@ -1,12 +1,24 @@
-
-// Track cart count
+// Track cart count and total price
 let cartCount = 0;
+let cartTotal = 0;
 
 // Handle Add to Cart button
 function addToCart() {
   const quantity = parseInt(document.getElementById("quantity").value);
+  const price = 4500; // Adjust to product price
+  const total = price * quantity;
+
+  // Update cart count and total
   cartCount += quantity;
+  cartTotal += total;
+
+  // Update cart preview
   document.getElementById("cart-count").textContent = cartCount;
+  document.getElementById("cart-info").textContent = `${cartCount} item(s) - ₦${cartTotal}`;
+
+  // Update Cart Sidebar
+  updateCartSidebar();
+
   alert("Item added to cart!");
 }
 
@@ -63,47 +75,42 @@ function renderRelatedProducts() {
   });
 }
 
-// Initialize
+// Initialize the related products
 renderRelatedProducts();
-function showTab(tabName) {
+
+// Show the clicked tab
+function showTab(event, tabName) {
   const allTabs = document.querySelectorAll('.tab-content');
   const allButtons = document.querySelectorAll('.tab-button');
 
+  // Hide all tabs
   allTabs.forEach(tab => {
     tab.classList.add('hidden');
   });
 
+  // Remove 'active' class from all buttons
   allButtons.forEach(btn => {
     btn.classList.remove('active');
   });
 
+  // Show the selected tab
   document.getElementById(`${tabName}-tab`).classList.remove('hidden');
+
+  // Add 'active' class to the clicked button
   event.target.classList.add('active');
 }
-let cartTotal = 0;
 
-function addToCart() {
-  const quantity = parseInt(document.getElementById("quantity").value);
-  const price = 4500;
-  const total = price * quantity;
-
-  cartCount += quantity;
-  cartTotal += total;
-
-  document.getElementById("cart-count").textContent = cartCount;
-  document.getElementById("cart-info").textContent = `${cartCount} item(s) - ₦${cartTotal}`;
-  updateCartSidebar();
-  alert("Item added to cart!");
-}
-
+// Toggle Cart Sidebar visibility
 function toggleCart() {
   document.getElementById("cart-sidebar").classList.toggle("hidden");
 }
 
+// Close Cart Sidebar
 function closeCart() {
   document.getElementById("cart-sidebar").classList.add("hidden");
 }
 
+// Update Cart Sidebar with details
 function updateCartSidebar() {
   const cartDetails = document.getElementById("cart-details");
   cartDetails.innerHTML = `
@@ -112,3 +119,9 @@ function updateCartSidebar() {
     <p>Total: ₦${cartTotal}</p>
   `;
 }
+
+// Checkout Function
+function checkout() {
+  alert(`Proceeding to checkout... Total: ₦${cartTotal}`);
+}
+

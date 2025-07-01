@@ -1,9 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Buy organic cocoa, plantains, and sustainable goods from Terra Balance. Handmade, eco-friendly, and high quality.">
+  <meta name="keywords" content="organic, sustainable, eco-friendly, handmade, cocoa, plantains, Terra Balance">
+  <meta name="author" content="Tigra Creative">
+  <meta property="og:title" content="Terra Balance – Organic Product Page">
+  <meta property="og:description" content="Explore our sustainable and handmade product collection. Eco-conscious shopping starts here.">
+  <meta property="og:image" content="img/thumb1.jpg">
+  <meta property="og:url" content="https://tigracreative.github.io/terra-product-page/">
   <title>Terra Balance Product Page</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -31,48 +37,48 @@
     </section>
 
     <section class="tabs">
-  <div class="tab-buttons">
-    <button class="tab-button active" onclick="showTab('description')">Description</button>
-    <button class="tab-button" onclick="showTab('reviews')">Reviews</button>
-    <button class="tab-button" onclick="showTab('related')">Related Products</button>
-  </div>
+      <div class="tab-buttons">
+        <button class="tab-button active" onclick="showTab(event, 'description')">Description</button>
+        <button class="tab-button" onclick="showTab(event, 'reviews')">Reviews</button>
+        <button class="tab-button" onclick="showTab(event, 'related')">Related Products</button>
+      </div>
 
-  <div class="tab-content" id="description-tab">
-    <p>This premium Organic Cocoa is sustainably grown by Terra Balance farmers in Osun State, Nigeria. It's rich in nutrients, flavor, and supports local eco-friendly farming practices.</p>
-  </div>
+      <div class="tab-content" id="description-tab">
+        <p>This premium Organic Cocoa is sustainably grown by Terra Balance farmers in Osun State, Nigeria. It is rich in nutrients, flavor, and supports local eco-friendly farming practices. Perfect for making chocolate, baking, or enjoying a rich, healthy drink.</p>
+      </div>
 
-  <div class="tab-content hidden" id="reviews-tab">
-    <h3>Customer Reviews</h3>
-    <div id="review-list"></div>
-    <textarea id="review-input" placeholder="Leave a review..."></textarea>
-    <button onclick="submitReview()">Submit Review</button>
-  </div>
+      <div class="tab-content hidden" id="reviews-tab">
+        <h3>Customer Reviews</h3>
+        <div id="review-list"></div>
+        <textarea id="review-input" placeholder="Leave a review..."></textarea>
+        <button onclick="submitReview()">Submit Review</button>
+      </div>
 
-  <div class="tab-content hidden" id="related-tab">
-    <h3>Related Products</h3>
-    <div id="related-products-container"></div>
-  </div>
-</section>
-
+      <div class="tab-content hidden" id="related-tab">
+        <h3>Related Products</h3>
+        <div id="related-products-container"></div>
+      </div>
+    </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Terra Balance</p>
   </footer>
 
+  <!-- Cart Preview -->
+  <div class="cart-preview" onclick="toggleCart()">
+    <span id="cart-icon">🛒</span>
+    <span id="cart-info">0 item(s) - ₦0</span>
+  </div>
+
+  <!-- Cart Sidebar -->
+  <div class="cart-sidebar hidden" id="cart-sidebar">
+    <h3>Your Cart</h3>
+    <div id="cart-details"></div>
+    <button onclick="closeCart()">Close</button>
+    <button onclick="checkout()">Proceed to Checkout</button>
+  </div>
+
   <script src="script.js"></script>
 </body>
 </html>
-<!-- Sticky Cart Preview -->
-<div class="cart-preview" onclick="toggleCart()">
-  <span id="cart-icon">🛒</span>
-  <span id="cart-info">0 item(s) - ₦0</span>
-</div>
-
-<!-- Hidden Cart Sidebar -->
-<div class="cart-sidebar hidden" id="cart-sidebar">
-  <h3>Your Cart</h3>
-  <div id="cart-details"></div>
-  <button onclick="closeCart()">Close</button>
-</div>
-
