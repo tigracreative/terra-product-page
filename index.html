@@ -63,4 +63,16 @@
   <script src="script.js"></script>
 </body>
 </html>
+<!-- Sticky Cart Preview -->
+<div class="cart-preview" onclick="toggleCart()">
+  <span id="cart-icon">🛒</span>
+  <span id="cart-info">0 item(s) - ₦0</span>
+</div>
+
+<!-- Hidden Cart Sidebar -->
+<div class="cart-sidebar hidden" id="cart-sidebar">
+  <h3>Your Cart</h3>
+  <div id="cart-details"></div>
+  <button onclick="closeCart()">Close</button>
+</div>
 

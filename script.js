@@ -80,3 +80,35 @@ function showTab(tabName) {
   document.getElementById(`${tabName}-tab`).classList.remove('hidden');
   event.target.classList.add('active');
 }
+let cartTotal = 0;
+
+function addToCart() {
+  const quantity = parseInt(document.getElementById("quantity").value);
+  const price = 4500;
+  const total = price * quantity;
+
+  cartCount += quantity;
+  cartTotal += total;
+
+  document.getElementById("cart-count").textContent = cartCount;
+  document.getElementById("cart-info").textContent = `${cartCount} item(s) - ₦${cartTotal}`;
+  updateCartSidebar();
+  alert("Item added to cart!");
+}
+
+function toggleCart() {
+  document.getElementById("cart-sidebar").classList.toggle("hidden");
+}
+
+function closeCart() {
+  document.getElementById("cart-sidebar").classList.add("hidden");
+}
+
+function updateCartSidebar() {
+  const cartDetails = document.getElementById("cart-details");
+  cartDetails.innerHTML = `
+    <p><strong>Organic Cocoa</strong></p>
+    <p>Items: ${cartCount}</p>
+    <p>Total: ₦${cartTotal}</p>
+  `;
+}
