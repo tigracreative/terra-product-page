@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Terra Balance Product Page</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Terra Balance</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">Shop</a>
+      <a href="#">Cart (<span id="cart-count">0</span>)</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="product">
+      <img src="https://via.placeholder.com/300x200?text=Organic+Cocoa" alt="Organic Cocoa" id="main-image"/>
+      <div class="details">
+        <h2>Organic Cocoa</h2>
+        <p class="price">₦4,500</p>
+        <p>Pure, organic cocoa grown sustainably in Nigeria.</p>
+        <label>Quantity:</label>
+        <input type="number" id="quantity" value="1" min="1"/>
+        <button onclick="addToCart()">Add to Cart</button>
+      </div>
+    </section>
+
+    <section class="tabs">
+  <div class="tab-buttons">
+    <button class="tab-button active" onclick="showTab('description')">Description</button>
+    <button class="tab-button" onclick="showTab('reviews')">Reviews</button>
+    <button class="tab-button" onclick="showTab('related')">Related Products</button>
+  </div>
+
+  <div class="tab-content" id="description-tab">
+    <p>This premium Organic Cocoa is sustainably grown by Terra Balance farmers in Osun State, Nigeria. It's rich in nutrients, flavor, and supports local eco-friendly farming practices.</p>
+  </div>
+
+  <div class="tab-content hidden" id="reviews-tab">
+    <h3>Customer Reviews</h3>
+    <div id="review-list"></div>
+    <textarea id="review-input" placeholder="Leave a review..."></textarea>
+    <button onclick="submitReview()">Submit Review</button>
+  </div>
+
+  <div class="tab-content hidden" id="related-tab">
+    <h3>Related Products</h3>
+    <div id="related-products-container"></div>
+  </div>
+</section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Terra Balance</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
